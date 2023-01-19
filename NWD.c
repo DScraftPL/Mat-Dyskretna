@@ -48,6 +48,10 @@ ZrNWD rNWD(int a, int b)
 int Kon(int m, int a, int n)
 {
     int nwd = NWD(m,n);
+    while(a<=0)
+    {
+        a += n;
+    }
     if(nwd%a == 0)
     {
         m = m/nwd;
@@ -57,8 +61,6 @@ int Kon(int m, int a, int n)
     if(NWD(m,n) == 1)
     {
         ZrNWD t = rNWD(m,n);
-        //printf("%i*%i + %i*%i = %i\n", m, t.s, n, t.t, NWD(m,n));
-        //printf("%i %i %i\n",t.s, a*t.s, (a*t.s)%n);
         return (a*t.s)%n;
     }
     else
