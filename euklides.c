@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "NWD.c"
+#include "NWD.h"
 
 int main()
 {

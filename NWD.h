@@ -68,3 +68,33 @@ int Kon(int m, int a, int n)
         return -1;
     }
 }
+
+int *PRIMES(int n){
+    int t[10000];
+    for(int i=1; i<10000; i++)
+    {
+        t[i] = 0;
+    }
+    for(int i=2; i<10000; i++)
+    {
+        if(t[i]==0)
+        {
+            for(int j=2; j*i<10000; j++)
+            {
+                t[i*j]=1;
+            }
+        }
+    }
+    int *B,it=0,i=2;
+    B = malloc(n * sizeof(int));
+    while(it<n)
+    {
+        if(t[i]==0)
+        {
+            B[it] = i;
+            it++;
+        }
+        i++;
+    }
+    return B;
+}

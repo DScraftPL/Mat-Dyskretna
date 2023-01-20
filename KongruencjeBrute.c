@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "NWD.c"
+#include "NWD.h"
 
 // trzeba i tak odtworzyc, wiec musi byc przynajmniej 1 zmienna musi byc wielkosci danej liczby :/
 
