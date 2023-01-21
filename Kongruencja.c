@@ -4,8 +4,8 @@
 
 int main()
 {
-    int m,a,n;
+    int m,a,n,k;
     printf("m*x = a (mod n)\n");
     scanf("%i%i%i",&m,&a,&n);
-    printf("%i * x = %i (mod %i)\nx = %i + %i * k\n",m,a,n,Kon(m,a,n),n);
+    PrintKon(m,a,n,2);
 }

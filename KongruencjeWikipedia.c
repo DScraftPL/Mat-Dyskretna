@@ -4,30 +4,19 @@
 
 int main()
 {
-    long long M=1,x,Mi,W=0;
-    int n,e;
-    ZrNWD g;
-    scanf("%lli%i",&x,&n);
-    int t_n[n],t_a[n];
+    long long x,W; UKon g; int n;
+    scanf("%lli%i", &x, &n);
+    int *temp = malloc(n * sizeof(int));
     for(int i=0; i<n; i++)
     {
-        scanf("%i",&t_n[i]);
-        t_a[i] = x%t_n[i];
-        M *= t_n[i];
+        scanf("%i",&temp[i]);
     }
-    printf("===============================\n");
+    g = CKon(x,temp,n);
     for(int i=0; i<n; i++)
     {
-        printf("x = %i (mod %i)\n",t_a[i],t_n[i]);
+        PrintKon(1,g.a[i],g.n[i],1);
     }
-    printf("===============================\n");
-    for(int i=0; i<n; i++)
-    {
-        Mi = M/t_n[i];
-        g = rNWD(t_n[i],Mi);
-        e = g.t*Mi;
-        W += e*t_a[i];
-        printf("%lli %i %i %lli\n",Mi,g.t,e,W);
-    }
+    free(temp);
+    W = DecKonBrute(g,n);
     printf("%lli\n",W);
 }

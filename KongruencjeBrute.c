@@ -2,36 +2,23 @@
 #include <stdio.h>
 #include "NWD.h"
 
-// trzeba i tak odtworzyc, wiec musi byc przynajmniej 1 zmienna musi byc wielkosci danej liczby :/
-
 int main()
 {
-    long long x;
-    int n;
+    UKon t; long long x,R; int n;
     scanf("%lli%i",&x,&n);
-    int t_m[n],t_n[n],t_a[n],t_il[n];
+    int *temp = malloc(sizeof(int)*n), t_m[n], t_il[n];
     for(int i=0; i<n; i++)
     {
-        scanf("%i",&t_n[i]);
-        t_a[i] = x%t_n[i];
+        scanf("%i",&temp[i]);
     }
-    printf("===============================\n");
+    t = CKon(x,temp,n);
+    free(temp);
+    separator();
     for(int i=0; i<n; i++)
     {
-        printf("x = %i (mod %i)\n",t_a[i],t_n[i]);
+        PrintKon(1,t.a[i],t.n[i],1);
     }
-    printf("===============================\n");
-    t_m[0] = t_a[0];
-    t_il[0] = t_n[0];
-    for(int i=1; i<n; i++)
-    {
-        t_m[i] = Kon(1,t_m[i-1],t_il[i-1]);
-        while(t_m[i] % t_n[i] != t_a[i])
-        {
-            t_m[i] += t_il[i-1];
-        }
-        t_il[i] = t_il[i-1] * t_n[i];
-        printf("x = %i (mod %i)\n",t_m[i],t_il[i]);
-    }
-    printf("%i\n", t_m[n-1]);
+    separator();
+    R = DecKonBrute(t, n);
+    printf("%lli\n", R);
 }
